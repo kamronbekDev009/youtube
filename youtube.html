@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Youtube</title>
+    <style>
+        :root{
+    --hover:rgb(219, 219, 219) ;
+    --rounded-lg:30px;
+    --desc-color:#f6f6fa;
+    --rounded-full: 50%;
+    --bg-gray: #e2dede;
+}
+
+.flex{
+    display:flex;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+py-1{
+    padding: 1em 0;
+}
+
+py-2{
+    padding: 2em 0;
+}
+
+px-1{
+    padding: 0 1em;
+}
+
+px-2{
+    padding: 0 2em;
+}
+
+.w-4{
+    width:20px;
+}
+
+.h-4{
+    height:20px;
+}
+
+.w-6{
+    width:25px;
+}
+
+.h-6{
+    height:25px;
+}
+
+.cursor-pointer{
+    cursor:pointer
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.absolute{
+    position:absolute
+}
+
+.relative{
+    position: relative;
+}
+
+.fixed{
+    position: fixed;
+}
+
+.w-full{
+    width: 100%;
+}
+
+.container{
+    width: 90%;
+}
+
+.mx-auto{
+ margin: 0 5%;
+}
+
+.mx-3{
+    margin: 0 3em;
+}
+
+.top-0{
+    top:0;
+}
+
+.left-0{
+    left:0
+}
+
+.left-20{
+    left:20px;
+}
+
+.bottom-0{
+    bottom: 0;
+}
+
+.right-0{
+    right:0
+}
+
+.top-20{
+    top:20px;
+}
+
+.mx-1{
+    margin: 0 1em;
+}
+
+.my-1{
+    margin: 1em 0;
+}
+
+.search_input{
+    width: 400px;
+    padding:13px 25px;
+    border: 1.3px solid rgb(196, 196, 196);
+    border-right: transparent;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    text-transform: capitalize;
+    
+}
+
+.search_input:focus{
+    outline: none;
+}
+
+.search_input::placeholder{
+ font-size: 17px;
+ text-indent: 0;
+ color: #949494;
+}
+
+.search_btn{
+    border: 1.3px solid rgb(196, 196, 196);
+    padding: 8px 20px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.search_btn:hover{
+    box-shadow: 0 0 1px rgb(168, 166, 166);
+    cursor: pointer;
+}
+
+.search_icon{
+    color: #a0a0a0;
+}
+
+.mic_icon{
+    border: 1px solid transparent;
+    border-radius: 50%;
+    padding: 15px;
+    
+}
+.mic_icon:hover{
+  background-color: #e2dede;
+}
+
+.avatar{
+    border-radius: 50%;
+    border: 1px solid transparent;
+}
+
+.right_icon{
+    padding: 10px;
+}
+
+.right_icon:hover{
+    background-color: var(--bg-gray);
+    border-radius: var(--rounded-full);
+    padding: 10px;
+}
+
+.tag{
+    background-color: var(--bg-gray);
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-weight: 500px;
+    text-align: center;
+    font-family: arial;
+    font-weight: 500px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.tag:hover{
+    background-color: #d6d6d6;
+}
+
+.tag-active{
+    background-color: rgb(27, 25, 25);
+    border-radius: 10px;
+    padding: 8px 10px;
+    color: white;
+    font-family: arial;
+    text-align: center;
+    font-weight: 500px;
+}
+
+.overflow-x-scroll{
+    overflow-x: scroll;
+    touch-action: cross-slide-x;
+}
+
+.slider{
+    width: 100%;
+    white-space: pre-wrap;
+    cursor: pointer;
+    margin: 0 5px ;
+}
+
+::-webkit-scrollbar{
+    visibility: flex;
+}
+
+.main{
+    width: 80%;
+    margin: 0 10%;
+    position: absolute;
+    top: 130px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.row{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+.card{
+    width: 33.333333%;
+    
+    padding:auto ;
+    border-radius: 15px;
+    
+}
+
+@media screen and (max-width:660px){
+    .row{
+        display: flex;
+    }
+    .card{
+        width:100%;
+    }
+    .slider{
+        display:none;
+    }
+
+}
+    </style>
+</head>
+<body>
+<header class="header flex items-center justify-between px-1 right-6  w-full fixed top-20 left-6">
+    <div class="head-left flex items-center mx-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>    
+          <img src="you.jpg" class="mx-1" width="90px" alt="YouTube">      
+    </div>
+    <div class="head-center flex items-center">
+        <div class="search flex items-center mx-1 w-full">
+            <input type="text" class="search_input" placeholder="Search">
+            <button class="search_btn flex items-center" title="Search">
+                <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 search_icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                  </svg>
+            </button>
+        </div>
+        <div class="mic">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mic_icon cursor-pointer">
+                <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
+                <path d="M5.5 9.643a.75.75 0 00-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-1.5v-1.546A6.001 6.001 0 0016 10v-.357a.75.75 0 00-1.5 0V10a4.5 4.5 0 01-9 0v-.357z" />
+              </svg>
+              
+              
+              
+        </div>
+    </div>
+    <div class="head-right flex items-center mx-3">
+        <img class="cursor-pointer right_icon" src="video-plus.svg" width="25px" height="25px" alt="Plus">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer right_icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+            <img src="kitob.jpg" class="avatar cursor-pointer" width="25px" height="25px" alt="avatar">
+    </div>
+</header> 
+<aside class="sidebar"></aside>
+<div id="tags" class="slider flex items-center overflow-x-scroll absolute" style="left:60px; top:90px;">
+</div>
+<main class="main">
+    <div class="row my-1" id="row">
+        
+    </div>
+</main>
+<script>
+    var tags=["All", "Custome dramas", "Music", "Gaming", "COmputer programing", "Live", "Ai", "News"]
+    
+    var tagContainer=document.querySelector("#tags")
+    
+
+    for(var i=0; i<tags.length; i++){
+        var DivCont=document.createElement("div")
+        DivCont.classList.add("tag")
+        DivCont.textContent=tags[i]
+        tagContainer.appendChild(DivCont)
+        if(DivCont.textContent=="All"){
+        DivCont.classList.add("tag-active")
+    }
+    else{
+        DivCont.classList.add("tag")
+    }
+    }
+    
+    var row=document.querySelector("#row")
+
+    var Api_key='AIzaSyC6-w_q8fXgu7vvbas-7x03vIPRXK4lOeU'
+    const url=`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId=PLUW304lJeu3W24Tu2l1a_dMUb2otdfdu6&key=${Api_key}`
+   
+    async function fetchData(){
+    const response=await fetch(url)
+    const data= await response.json()
+    
+
+    for(var j=0; j<data.items.length; j++){
+        var title=data.items[j].snippet.title
+       var VideoId=data.items[j].snippet.resourceId.videoId
+       var embed=`https://www.youtube.com/embed/${VideoId}`
+
+       var Card=document.createElement("div")
+       Card.classList.add("card")
+       var Video=document.createElement("iframe")
+       Video.src=embed
+       Video.setAttribute("frameborder", "0")
+       Video.setAttribute("allow", "picture-in-picture")
+       Video.setAttribute("allowfullscreen", "true")
+       Card.appendChild(Video)
+       Video.style.borderRadius="10px"
+       var heading=document.createElement("h2")
+       heading.textContent=title
+       Card.appendChild(heading)
+       
+       row.appendChild(Card)    
+    }
+    
+}
+    
+    fetchData()
+</script>
+</body>
+</html>
